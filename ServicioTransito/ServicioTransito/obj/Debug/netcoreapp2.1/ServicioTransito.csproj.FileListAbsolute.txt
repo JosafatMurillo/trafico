@@ -1,0 +1,14 @@
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\bin\Debug\netcoreapp2.1\ServicioTransito.deps.json
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\bin\Debug\netcoreapp2.1\ServicioTransito.runtimeconfig.json
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\bin\Debug\netcoreapp2.1\ServicioTransito.runtimeconfig.dev.json
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\bin\Debug\netcoreapp2.1\ServicioTransito.dll
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\bin\Debug\netcoreapp2.1\ServicioTransito.pdb
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\obj\Debug\netcoreapp2.1\ServicioTransito.csprojAssemblyReference.cache
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\obj\Debug\netcoreapp2.1\ServicioTransito.csproj.CoreCompileInputs.cache
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\obj\Debug\netcoreapp2.1\ServicioTransito.RazorAssemblyInfo.cache
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\obj\Debug\netcoreapp2.1\ServicioTransito.RazorAssemblyInfo.cs
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\obj\Debug\netcoreapp2.1\ServicioTransito.AssemblyInfoInputs.cache
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\obj\Debug\netcoreapp2.1\ServicioTransito.AssemblyInfo.cs
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\obj\Debug\netcoreapp2.1\ServicioTransito.RazorTargetAssemblyInfo.cache
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\obj\Debug\netcoreapp2.1\ServicioTransito.dll
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\ServicioTransito\ServicioTransito\obj\Debug\netcoreapp2.1\ServicioTransito.pdb
