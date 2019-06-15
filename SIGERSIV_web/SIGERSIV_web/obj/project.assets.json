@@ -12570,11 +12570,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adolf\\source\\repos\\SIGERSIV_web\\SIGERSIV_web\\SIGERSIV.csproj",
+      "projectUniqueName": "C:\\Users\\adolf\\Documents\\Repositorios GIT\\trafico\\SIGERSIV_web\\SIGERSIV_web\\SIGERSIV.csproj",
       "projectName": "SIGERSIV",
-      "projectPath": "C:\\Users\\adolf\\source\\repos\\SIGERSIV_web\\SIGERSIV_web\\SIGERSIV.csproj",
+      "projectPath": "C:\\Users\\adolf\\Documents\\Repositorios GIT\\trafico\\SIGERSIV_web\\SIGERSIV_web\\SIGERSIV.csproj",
       "packagesPath": "C:\\Users\\adolf\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adolf\\source\\repos\\SIGERSIV_web\\SIGERSIV_web\\obj\\",
+      "outputPath": "C:\\Users\\adolf\\Documents\\Repositorios GIT\\trafico\\SIGERSIV_web\\SIGERSIV_web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
