@@ -16,10 +16,10 @@ namespace ServiciosTransito.Controllers
 
         [Route("/VehiculoAgeno/ObtenerPorId")]
         [Produces("application/json")]
-        [HttpGet]
-        public IQueryable<VehiculoAgeno> obtenerVehiculosAgenoPorId([FromForm]int idVehiculo)
+        [HttpPost]
+        public VehiculoAgeno obtenerVehiculosAgenoPorId([FromForm]int idVehiculo)
         {
-            return _context.VehiculoAgeno.Where(v => v.IdVehiculoAgeno == idVehiculo);
+            return _context.VehiculoAgeno.FirstOrDefault(v => v.IdVehiculoAgeno == idVehiculo);
         }
 
         [Route("/VehiculoAgeno/Agregar")]

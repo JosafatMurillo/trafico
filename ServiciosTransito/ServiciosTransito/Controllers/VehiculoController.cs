@@ -14,9 +14,25 @@ namespace ServiciosTransito.Controllers
     {
         TransitoContext _context = new TransitoContext();
 
+        [Route("/Vehiculo/ObtenerPorIdVehiculo")]
+        [Produces("application/json")]
+        [HttpPost]
+        public Vehiculo obtenerVehiculoPorId([FromForm]int idVehiculo)
+        {
+            return _context.Vehiculo.FirstOrDefault(v => v.IdVehiculo == idVehiculo);
+        }
+
+        [Route("/Vehiculo/ObtenerPorIdCliente")]
+        [Produces("application/json")]
+        [HttpPost]
+        public Vehiculo obtenerVehiculoPorIdCliente([FromForm]int idCliente)
+        {
+            return _context.Vehiculo.FirstOrDefault(v => v.Cliente == idCliente);
+        }
+
         [Route("/Vehiculo/ObtenerPorCliente")]
         [Produces("application/json")]
-        [HttpGet]
+        [HttpPost]
         public IQueryable<Vehiculo> obtenerVehiculosPorCliente([FromForm]int idCliente)
         {
             return _context.Vehiculo.Where(v => v.Cliente == idCliente);

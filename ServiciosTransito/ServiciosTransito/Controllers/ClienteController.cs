@@ -24,6 +24,14 @@ namespace ServiciosTransito.Controllers
             return cliente;
         }
 
+        [Route("/Cliente/ObtenerPorId")]
+        [Produces("application/json")]
+        [HttpPost]
+        public Cliente obtenerPorId([FromForm]int idCliente)
+        {
+            return _context.Cliente.FirstOrDefault(c => c.IdCliente == idCliente);
+        }
+
         [Route("/Cliente/Registrar")]
         [Produces("application/json")]
         [HttpPost]

@@ -16,7 +16,7 @@ namespace ServiciosTransito.Controllers
 
         [Route("/Dictamen/ObtenerPorReporte")]
         [Produces("application/json")]
-        [HttpGet]
+        [HttpPost]
         public Dictamen obtenerDictamenPorReporte([FromForm]int idReporte)
         {
             return _context.Dictamen.FirstOrDefault(d => d.Reporte == idReporte);

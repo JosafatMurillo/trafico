@@ -16,10 +16,18 @@ namespace ServiciosTransito.Controllers
 
         [Route("/Reporte/ObtenerPorCliente")]
         [Produces("application/json")]
-        [HttpGet]
+        [HttpPost]
         public IQueryable <Reporte> obtenerReportesPorCliente([FromForm] int cliente)
         {
             return _context.Reporte.Where(r => r.Cliente == cliente);
+        }
+
+        [Route("/Reporte/ObtenerPorId")]
+        [Produces("application/json")]
+        [HttpPost]
+        public Reporte obtenerPorId([FromForm] int idReporte)
+        {
+            return _context.Reporte.FirstOrDefault(r => r.IdReporte == idReporte);
         }
 
         [Route("/Reporte/ObtenerTodos")]

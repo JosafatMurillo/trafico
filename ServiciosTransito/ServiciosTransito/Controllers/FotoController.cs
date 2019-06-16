@@ -16,7 +16,7 @@ namespace ServiciosTransito.Controllers
 
         [Route("/Foto/ObtenerPorReporte")]
         [Produces("application/json")]
-        [HttpGet]
+        [HttpPost]
         public IQueryable<Foto> obtenerTiposEmpleado([FromForm] int idReporte)
         {
             return _context.Foto.Where(f => f.Reporte == idReporte);
@@ -73,7 +73,7 @@ namespace ServiciosTransito.Controllers
 
         [Route("/Foto/Eliminar")]
         [Produces("application/json")]
-        [HttpPut]
+        [HttpDelete]
         public Mensaje eliminarFoto([FromForm]int idFoto)
         {
             Mensaje mensaje = new Mensaje();
