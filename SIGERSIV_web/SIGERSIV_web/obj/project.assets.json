@@ -12564,23 +12564,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\adolf\\.nuget\\packages\\": {},
+    "C:\\Users\\INSPIRON 5577\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\adolf\\Documents\\Repositorios GIT\\trafico\\SIGERSIV_web\\SIGERSIV_web\\SIGERSIV.csproj",
+      "projectUniqueName": "C:\\Users\\INSPIRON 5577\\Desktop\\Git\\Transito\\trafico\\SIGERSIV_web\\SIGERSIV_web\\SIGERSIV.csproj",
       "projectName": "SIGERSIV",
-      "projectPath": "C:\\Users\\adolf\\Documents\\Repositorios GIT\\trafico\\SIGERSIV_web\\SIGERSIV_web\\SIGERSIV.csproj",
-      "packagesPath": "C:\\Users\\adolf\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\adolf\\Documents\\Repositorios GIT\\trafico\\SIGERSIV_web\\SIGERSIV_web\\obj\\",
+      "projectPath": "C:\\Users\\INSPIRON 5577\\Desktop\\Git\\Transito\\trafico\\SIGERSIV_web\\SIGERSIV_web\\SIGERSIV.csproj",
+      "packagesPath": "C:\\Users\\INSPIRON 5577\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\INSPIRON 5577\\Desktop\\Git\\Transito\\trafico\\SIGERSIV_web\\SIGERSIV_web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\adolf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\INSPIRON 5577\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

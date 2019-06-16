@@ -1,4 +1,5 @@
-﻿@{
+﻿@using SIGERSIV.Models
+@{
     ViewData["Title"] = "Dashboard";
     Layout = null;
 }
@@ -6,15 +7,33 @@
 @{
 
     @Model List<SIGERSIV.Models.ReporteVista> reportes = new List<SIGERSIV.Models.ReporteVista>();
+    @Model Personal per = new Personal();
+    @Model Reporte reporteSeleccionado = new Reporte();
+    @Model Vehiculo vehiculoReporte = new Vehiculo();
+    @Model VehiculoAgeno vehiculoAgenoReporte = new VehiculoAgeno();
+    @Model Cliente clienteReporte = new Cliente();
 
-    @Model SIGERSIV.Models.ReporteVista reporte1 = new SIGERSIV.Models.ReporteVista();
-    @Model SIGERSIV.Models.ReporteVista reporte2 = new SIGERSIV.Models.ReporteVista();
-
-    reporte1.Lugar = "Av. Xalapa 65";
-    reporte1.Cliente = "Adolfo Ángel de la Cruz Díaz";
-    reporte1.EstatusReporte = "No determinado";
-
-    reportes.Add(reporte1);
+    if(ViewBag.reporteVista != null)
+    {
+        reportes = ViewBag.reporteVista;
+    }
+    per = ViewBag.empleado;
+    if(ViewBag.reporte != null)
+    {
+        reporteSeleccionado = ViewBag.reporte;
+    }
+    if(ViewBag.vehiculoCliente != null)
+    {
+        vehiculoReporte = ViewBag.vehiculoCliente;
+    }
+    if(ViewBag.vehiculoAgeno != null)
+    {
+        vehiculoAgenoReporte = ViewBag.vehiculoAgeno;
+    }
+    if(ViewBag.cliente != null)
+    {
+        clienteReporte = ViewBag.cliente;
+    }
 }
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -29,7 +48,7 @@
         <div class="collapse navbar-collapse" id="navBar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Cerrar sesión</a>
+                    <a class="nav-link" href="#" onclick="/Home/CerrarSesion">Cerrar sesión</a>
                 </li>
             </ul>
         </div>
@@ -77,9 +96,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">@reporte1.Lugar</th>
-                            <td>@reporte1.Cliente</td>
-                            <td>@reporte1.EstatusReporte</td>
+                            <th scope="row">@reportes[0].Lugar</th>
+                            <td>@reportes[0].Cliente</td>
+                            <td>@reportes[0].EstatusReporte</td>
                         </tr>
                     </tbody>
                 </table>
@@ -95,10 +114,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Marca</th>
-                            <td>Modelo</td>
-                            <td>Año</td>
-                            <td>Color</td>
+                            <th scope="row">@vehiculoReporte.Marca</th>
+                            <td>@vehiculoReporte.Modelo</td>
+                            <td>@vehiculoReporte.Anio</td>
+                            <td>@vehiculoReporte.Color</td>
                         </tr>
                     </tbody>
                 </table>
@@ -112,9 +131,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Aseguradora</th>
-                            <td>Póliza</td>
-                            <td>Placas</td>
+                            <th scope="row">@vehiculoReporte.NombreAseguradora</th>
+                            <td>@vehiculoReporte.NumeroPoliza</td>
+                            <td>@vehiculoReporte.NumeroPlacas</td>
                         </tr>
                     </tbody>
                 </table>
@@ -130,10 +149,10 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Marca</th>
-                            <td>Modelo</td>
-                            <td>Año</td>
-                            <td>Color</td>
+                            <th scope="row">@vehiculoAgenoReporte.Marca</th>
+                            <td>@vehiculoAgenoReporte.Modelo</td>
+                            <td>@vehiculoAgenoReporte.Anio</td>
+                            <td>@vehiculoAgenoReporte.Color</td>
                         </tr>
                     </tbody>
                 </table>
@@ -147,9 +166,9 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row">Aseguradora</th>
-                            <td>Póliza</td>
-                            <td>Placas</td>
+                            <th scope="row">@vehiculoAgenoReporte.NombreAseguradora</th>
+                            <td>@vehiculoAgenoReporte.NumeroPoliza</td>
+                            <td>@vehiculoAgenoReporte.NumeroPlacas</td>
                         </tr>
                     </tbody>
                 </table>
@@ -171,7 +190,7 @@
             </div>
             <div class="modal-body">
                 <p>A favor de: </p>
-                <form>
+                <form action="/Home/Dictaminar">
                     <div class="form-check">
                         <input type="radio" name="opcionDeterminar" class="form-check-input" id="exampleCheck1" value="usuario">
                         <label class="form-check-label" for="exampleCheck1">Usuario</label>
