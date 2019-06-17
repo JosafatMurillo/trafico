@@ -10,5 +10,6 @@ namespace SIGERSIV.Models
         public String Lugar { get; set; }
         public String Cliente { get; set; }
         public String EstatusReporte { get; set; }
+        public int idReporte { get; set; }
     }
 }

@@ -15,6 +15,9 @@ namespace SIGERSIV_web.Controllers
 {
     public class HomeController : Controller
     {
+
+        private static String url = "http://192.168.43.74";
+
         public IActionResult Index()
         {
             return View();
@@ -39,7 +42,7 @@ namespace SIGERSIV_web.Controllers
         [HttpPost]
         public ActionResult Dashboard(String username, String contrasena)
         {
-            var request = (HttpWebRequest)WebRequest.Create("http://localhost:53884/Personal/Login");
+            var request = (HttpWebRequest)WebRequest.Create(url+"/Personal/Login");
 
             var postData = $"nombreUsuario={username}&contrasenia={contrasena}";
             var data = Encoding.ASCII.GetBytes(postData);
@@ -65,12 +68,14 @@ namespace SIGERSIV_web.Controllers
 
             TodosReportes();
 
+            Detalles();
+
             return View("Dashboard");
         }
 
         public void TodosReportes()
         {
-            var request = (HttpWebRequest)WebRequest.Create("http://localhost:53884/Reporte/ObtenerTodos");
+            var request = (HttpWebRequest)WebRequest.Create(url+"/Reporte/ObtenerTodos");
 
             request.Method = "GET";
             request.ContentType = "application/x-www-form-urlencoded";
@@ -98,7 +103,7 @@ namespace SIGERSIV_web.Controllers
 
         public Cliente ClientesPorReporte(Reporte reporte)
         {
-            var request = (HttpWebRequest)WebRequest.Create("http://localhost:53884/Cliente/ObtenerPorId");
+            var request = (HttpWebRequest)WebRequest.Create(url+"/Cliente/ObtenerPorId");
 
             int? id = reporte.Cliente;
             var postData = $"idCliente={id}";
@@ -140,6 +145,7 @@ namespace SIGERSIV_web.Controllers
                     vista.EstatusReporte = "En espera";
                 }
                 vista.Lugar = r.Lugar;
+                vista.idReporte = r.IdReporte;
                 vistas.Add(vista);
                 cont++;
             }
@@ -152,9 +158,12 @@ namespace SIGERSIV_web.Controllers
             return View("/Home/Index");
         }
 
-        public ActionResult Detalles(int idReporte)
+        [HttpPost]
+        public ActionResult Detalles()
         {
-            var request = (HttpWebRequest)WebRequest.Create("http://localhost:53884/Reporte/ObtenerPorId");
+            var idReporte = 1;
+
+            var request = (HttpWebRequest)WebRequest.Create(url+"/Reporte/ObtenerPorId");
             
             var postData = $"idReporte={idReporte}";
             var data = Encoding.ASCII.GetBytes(postData);
@@ -178,23 +187,29 @@ namespace SIGERSIV_web.Controllers
 
             Cliente clienteReporte = obtenerClientePorReporte(reporteSeleccionado);
 
-            Vehiculo vehiculoCliente = obtenerVehiculoPorCliente(reporteSeleccionado);
+            Vehiculo vehiculoCliente = obtenerVehiculoPorReporte(reporteSeleccionado);
 
             VehiculoAgeno vehiculoAgenoSeleccionado = obtenerVehiculoAgenoPorReporte(reporteSeleccionado);
 
-            ViewBag.cliente = clienteReporte;
-            ViewBag.vehiculoCliente = vehiculoCliente;
-            ViewBag.vehiculoAgeno = vehiculoAgenoSeleccionado;
-            ViewBag.reporte = reporteSeleccionado;
 
-            return View();
+            if(clienteReporte != null | vehiculoCliente != null || vehiculoAgenoSeleccionado != null || reporteSeleccionado != null)
+            {
+                ViewBag.cliente = clienteReporte;
+                ViewBag.vehiculoCliente = vehiculoCliente;
+                ViewBag.vehiculoAgeno = vehiculoAgenoSeleccionado;
+                ViewBag.reporte = reporteSeleccionado;
+                return View("Detalles");
+            } else
+            {
+                return View();
+            }
         }
 
         public VehiculoAgeno obtenerVehiculoAgenoPorReporte(Reporte reporteSeleccionado)
         {
-            var request = (HttpWebRequest)WebRequest.Create("http://localhost:53884/VehiculoAgeno/ObtenerPorId");
+            var request = (HttpWebRequest)WebRequest.Create(url+"/VehiculoAgeno/ObtenerPorId");
 
-            var postData = $"idCliente={reporteSeleccionado.VehiculoAgeno}";
+            var postData = $"idVehiculo={reporteSeleccionado.VehiculoAgeno}";
             var data = Encoding.ASCII.GetBytes(postData);
 
             request.Method = "POST";
@@ -217,11 +232,11 @@ namespace SIGERSIV_web.Controllers
             return vehiculoAgeno;
         }
 
-        public Vehiculo obtenerVehiculoPorCliente(Reporte reporteSeleccionado)
+        public Vehiculo obtenerVehiculoPorReporte(Reporte reporteSeleccionado)
         {
-            var request = (HttpWebRequest)WebRequest.Create("http://localhost:53884/Vehiculo/ObtenerPorIdVehiculo");
+            var request = (HttpWebRequest)WebRequest.Create(url+"/Vehiculo/ObtenerPorIdVehiculo");
 
-            var postData = $"idCliente={reporteSeleccionado.Vehiculo}";
+            var postData = $"idVehiculo={reporteSeleccionado.Vehiculo}";
             var data = Encoding.ASCII.GetBytes(postData);
 
             request.Method = "POST";
@@ -246,7 +261,7 @@ namespace SIGERSIV_web.Controllers
 
         public Cliente obtenerClientePorReporte(Reporte reporte)
         {
-            var request = (HttpWebRequest)WebRequest.Create("http://localhost:53884/Cliente/ObtenerPorId");
+            var request = (HttpWebRequest)WebRequest.Create(url+"/Cliente/ObtenerPorId");
 
             var postData = $"idCliente={reporte.Cliente}";
             var data = Encoding.ASCII.GetBytes(postData);
@@ -271,15 +286,18 @@ namespace SIGERSIV_web.Controllers
             return clienteReporte;
         }
 
-        public void Dictaminar(String descripcion, int idReporte)
+        [HttpPost]
+        public void Dictaminar(String justificacion)
         {
-            var request = (HttpWebRequest)WebRequest.Create("http://localhost:53884/Dictamen/Registrar");
+            var request = (HttpWebRequest)WebRequest.Create(url+"/Dictamen/Registrar");
+
+            var idReporte = 1;
 
             Personal personal = ViewBag.empleado;
             String folio = "folio n";
 
 
-            var postData = $"personal={personal.IdPersonal}&reporte={idReporte}&folio={folio}&descripcion={descripcion}&nombrePerito={personal.Nombre + " " + personal.Apellidos}";
+            var postData = $"personal={personal.IdPersonal}&reporte={idReporte}&folio={folio}&descripcion={justificacion}&nombrePerito={personal.Nombre + " " + personal.Apellidos}";
             var data = Encoding.ASCII.GetBytes(postData);
 
             request.Method = "POST";
@@ -298,6 +316,70 @@ namespace SIGERSIV_web.Controllers
             Json(responseString);
 
             Mensaje mensajeRespuesta = JsonConvert.DeserializeObject<Mensaje>(responseString);
+
+            if (mensajeRespuesta.correcto)
+            {
+                Reporte reporte = obtenerReportePorId(idReporte);
+                actualizarEstatus(reporte);
+            }
+        }
+
+        public Reporte obtenerReportePorId(int idReporte)
+        {
+
+            var request = (HttpWebRequest)WebRequest.Create(url+"/Reporte/ObtenerPorId");
+
+            var postData = $"idReporte={idReporte}";
+            var data = Encoding.ASCII.GetBytes(postData);
+
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
+
+            using (var stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+
+            var response = (HttpWebResponse)request.GetResponse();
+
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+            Json(responseString);
+
+            Reporte reporte = JsonConvert.DeserializeObject<Reporte>(responseString);
+
+            return reporte;
+        }
+
+        public void actualizarEstatus(Reporte reporte)
+        {
+            var cliente = reporte.Cliente;
+            var lugar = reporte.Cliente;
+            var nombreConductor = reporte.NombreConductorAgeno;
+            var vehiculo = reporte.Vehiculo;
+            var vehiculoAgeno = reporte.VehiculoAgeno;
+            var idReporte = reporte.IdReporte;
+
+            var request = (HttpWebRequest)WebRequest.Create(url+"/Reporte/Actualizar");
+
+            var postData = $"cliente={cliente}&lugar={lugar}&nombreConductor={nombreConductor}&vehiculo={vehiculo}&vehiculoAgeno={vehiculoAgeno}&idReporte={idReporte}";
+            var data = Encoding.ASCII.GetBytes(postData);
+
+            request.Method = "PUT";
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = data.Length;
+
+            using (var stream = request.GetRequestStream())
+            {
+                stream.Write(data, 0, data.Length);
+            }
+
+            var response = (HttpWebResponse)request.GetResponse();
+
+            var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+            Json(responseString);
         }
     }
 }
