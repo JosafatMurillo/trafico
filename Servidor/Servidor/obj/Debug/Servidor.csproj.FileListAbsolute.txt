@@ -1,0 +1,7 @@
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\Servidor\Servidor\bin\Debug\Servidor.exe.config
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\Servidor\Servidor\bin\Debug\Servidor.exe
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\Servidor\Servidor\bin\Debug\Servidor.pdb
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\Servidor\Servidor\obj\Debug\Servidor.csprojAssemblyReference.cache
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\Servidor\Servidor\obj\Debug\Servidor.csproj.CoreCompileInputs.cache
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\Servidor\Servidor\obj\Debug\Servidor.exe
+D:\Sexto semestre\Desarrollo de sistemas en red\Proyecto\Servidor\Servidor\obj\Debug\Servidor.pdb
