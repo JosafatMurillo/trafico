@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">SIGERSIV</string>
+    <string name="action_settings">Settings</string>
+    <string name="nav_user">Perfil</string>
+    <string name="nav_add">Reportar</string>
+    <string name="nav_home">Inicio</string>
+    <string name="cmbVehiculo">Selecciona un vehículo</string>
+</resources>

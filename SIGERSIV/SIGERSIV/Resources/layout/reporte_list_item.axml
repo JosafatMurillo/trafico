@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<RelativeLayout
+       xmlns:android="http://schemas.android.com/apk/res/android"
+       android:layout_width="match_parent"
+       android:layout_height="?android:attr/listPreferredItemHeight">
+       <ImageView android:id="@+id/foto"
+             android:layout_width="?android:attr/listPreferredItemHeight"
+             android:layout_height="?android:attr/listPreferredItemHeight"
+             android:layout_alignParentLeft="true"
+             android:contentDescription="fotografía"
+             android:src="@drawable/user"/>
+       <TextView android:id="@+id/lugar"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:text="Lugar del siniestro"
+             android:layout_toRightOf="@id/foto"
+             android:layout_alignParentTop="true"
+             android:textAppearance="?android:attr/textAppearanceMedium"
+             android:singleLine="true"
+			 android:layout_marginLeft="10dp"
+			android:layout_marginTop="8dp"/>
+       <TextView
+           android:id="@+id/cliente"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_below="@id/lugar"
+           android:layout_toRightOf="@+id/foto"
+           android:singleLine="true"
+            android:text="Cliente"
+			android:layout_marginLeft="10dp"/>
+</RelativeLayout>
+
+</LinearLayout>
