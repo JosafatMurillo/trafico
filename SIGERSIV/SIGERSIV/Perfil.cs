@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 
 using Android.App;
@@ -10,13 +12,14 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Newtonsoft.Json;
 using SIGERSIV.Models;
 
 namespace SIGERSIV
 {
     public class Perfil : Fragment
     {
-        private List<Vehiculo> vehiculos;
+        private static List<Vehiculo> Vehiculos { get; set; }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,19 +36,53 @@ namespace SIGERSIV
 
             var listaVehiculos = (ListView)view.FindViewById(Resource.Id.listaVehiculos);
 
-            this.vehiculos = new List<Vehiculo>();
+            Vehiculos = new List<Vehiculo>();
 
-            Vehiculo vehiculo = new Vehiculo
+            Cliente cliente = MainActivity.Cliente;
+
+            var nombreUsuario = (TextView)view.FindViewById(Resource.Id.nombreUsuario);
+
+            nombreUsuario.Text = $"{cliente.Nombre} {cliente.Apellidos}";
+
+            if (cliente != null)
             {
-                Marca = "Volkswagen",
-                Modelo = "Beetle",
-                Anio = "2000",
-                NumPlacas = "YX-22390"
-            };
+                var request = (HttpWebRequest)WebRequest.Create("http://192.168.43.74/Vehiculo/ObtenerPorCliente");
 
-            vehiculos.Add(vehiculo);
+                var postData = $"idCliente={cliente.IdCliente}";
+                var data = Encoding.ASCII.GetBytes(postData);
 
-            AdaptadorVehiculos adaptador = new AdaptadorVehiculos(this.Activity, vehiculos);
+                request.Method = "POST";
+                request.ContentType = "application/x-www-form-urlencoded";
+                request.ContentLength = data.Length;
+
+                using (var stream = request.GetRequestStream())
+                {
+                    stream.Write(data, 0, data.Length);
+                }
+
+                var response = (HttpWebResponse)request.GetResponse();
+
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    var responseString = new StreamReader(response.GetResponseStream()).ReadToEnd();
+
+                    Vehiculos = JsonConvert.DeserializeObject<List<Vehiculo>>(responseString);
+                }
+                else
+                {
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(this.Activity);
+                    dialog.SetTitle("Error al obtener los reportes");
+                    dialog.SetMessage("Se generó un error al obtener los reportes." +
+                        "Inténtelo nuevamente en unos minutos.");
+                    dialog.SetNegativeButton("Aceptar", (senderAlert, args) => {
+                        dialog.Dispose();
+                    });
+                    Dialog diag = dialog.Create();
+                    diag.Show();
+                }
+            }
+
+            AdaptadorVehiculos adaptador = new AdaptadorVehiculos(this.Activity, Vehiculos);
             listaVehiculos.Adapter = adaptador;
 
             return view;

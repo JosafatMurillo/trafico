@@ -20,9 +20,13 @@ namespace SIGERSIV
     public class Login : Activity
     {
 
+        public static String IpServer { get; set; }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+
+            IpServer = "192.168.43.74";
 
             SetContentView(Resource.Layout.login_activity);
 
@@ -43,7 +47,7 @@ namespace SIGERSIV
 
             if(phone != null && contrasena != null)
             {
-                var request = (HttpWebRequest)WebRequest.Create("http://192.168.43.74/Cliente/Login");
+                var request = (HttpWebRequest)WebRequest.Create($"http://{IpServer}/Cliente/Login");
 
                 var postData = $"telefono={phone}&contrasenia={contrasena}";
                 var data = Encoding.ASCII.GetBytes(postData);
@@ -68,6 +72,7 @@ namespace SIGERSIV
                     MainActivity.Cliente = cliente;
 
                     StartActivity(typeof(MainActivity));
+                    this.Finish();
                 }
                 else if(response.StatusCode == HttpStatusCode.NoContent)
                 {

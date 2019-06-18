@@ -184,6 +184,7 @@
 				android:layout_marginTop="7dp" />
 
 			<EditText
+				android:id="@+id/involucradoTxt"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="10dp"
@@ -197,6 +198,7 @@
 				android:layout_marginTop="3dp" />
 
 			<EditText
+				android:id="@+id/aseguradoraTxt"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="10dp"
@@ -210,6 +212,7 @@
 				android:layout_marginTop="3dp" />
 
 			<EditText
+				android:id="@+id/polizaTxt"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="10dp"
@@ -223,6 +226,7 @@
 				android:layout_marginTop="3dp" />
 
 			<EditText
+				android:id="@+id/marcaTxt"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="10dp"
@@ -236,6 +240,7 @@
 				android:layout_marginTop="3dp" />
 
 			<EditText
+				android:id="@+id/modeloTxt"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="10dp"
@@ -249,6 +254,7 @@
 				android:layout_marginTop="3dp" />
 
 			<EditText
+				android:id="@+id/colorTxt"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="10dp"
@@ -262,10 +268,18 @@
 				android:layout_marginTop="3dp" />
 
 			<EditText
+				android:id="@+id/numPlacasTxt"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginLeft="10dp"
 				android:layout_marginRight="10dp"/>
+
+			<Button
+				android:id="@+id/guardarBtn"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="Guardar"
+				android:layout_gravity="center_horizontal" />
 
 		</LinearLayout>
 	

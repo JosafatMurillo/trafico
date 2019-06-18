@@ -2462,8 +2462,11 @@ namespace SIGERSIV
 			// aapt resource value: 0x7f080038
 			public const int always = 2131230776;
 			
-			// aapt resource value: 0x7f0800c5
-			public const int aniolabel = 2131230917;
+			// aapt resource value: 0x7f0800ce
+			public const int aniolabel = 2131230926;
+			
+			// aapt resource value: 0x7f0800c1
+			public const int aseguradoraTxt = 2131230913;
 			
 			// aapt resource value: 0x7f080056
 			public const int async = 2131230806;
@@ -2504,8 +2507,8 @@ namespace SIGERSIV
 			// aapt resource value: 0x7f0800ac
 			public const int chronometer = 2131230892;
 			
-			// aapt resource value: 0x7f0800c0
-			public const int cliente = 2131230912;
+			// aapt resource value: 0x7f0800c9
+			public const int cliente = 2131230921;
 			
 			// aapt resource value: 0x7f08004e
 			public const int clip_horizontal = 2131230798;
@@ -2513,11 +2516,14 @@ namespace SIGERSIV
 			// aapt resource value: 0x7f08004f
 			public const int clip_vertical = 2131230799;
 			
-			// aapt resource value: 0x7f0800bb
-			public const int cmbVehiculos = 2131230907;
+			// aapt resource value: 0x7f0800bd
+			public const int cmbVehiculos = 2131230909;
 			
 			// aapt resource value: 0x7f080039
 			public const int collapseActionView = 2131230777;
+			
+			// aapt resource value: 0x7f0800c4
+			public const int colorTxt = 2131230916;
 			
 			// aapt resource value: 0x7f08008f
 			public const int container = 2131230863;
@@ -2603,17 +2609,20 @@ namespace SIGERSIV
 			// aapt resource value: 0x7f080058
 			public const int forever = 2131230808;
 			
-			// aapt resource value: 0x7f0800be
-			public const int foto = 2131230910;
+			// aapt resource value: 0x7f0800c7
+			public const int foto = 2131230919;
 			
-			// aapt resource value: 0x7f0800b5
-			public const int galeryPane = 2131230901;
+			// aapt resource value: 0x7f0800b7
+			public const int galeryPane = 2131230903;
 			
 			// aapt resource value: 0x7f08000a
 			public const int ghost_view = 2131230730;
 			
-			// aapt resource value: 0x7f0800ba
-			public const int hideImagesBtn = 2131230906;
+			// aapt resource value: 0x7f0800c6
+			public const int guardarBtn = 2131230918;
+			
+			// aapt resource value: 0x7f0800bc
+			public const int hideImagesBtn = 2131230908;
 			
 			// aapt resource value: 0x7f080005
 			public const int home = 2131230725;
@@ -2633,20 +2642,23 @@ namespace SIGERSIV
 			// aapt resource value: 0x7f08005f
 			public const int image = 2131230815;
 			
-			// aapt resource value: 0x7f0800b7
-			public const int imagen1 = 2131230903;
+			// aapt resource value: 0x7f0800b9
+			public const int imagen1 = 2131230905;
+			
+			// aapt resource value: 0x7f0800ba
+			public const int imagen2 = 2131230906;
+			
+			// aapt resource value: 0x7f0800bb
+			public const int imagen3 = 2131230907;
 			
 			// aapt resource value: 0x7f0800b8
-			public const int imagen2 = 2131230904;
-			
-			// aapt resource value: 0x7f0800b9
-			public const int imagen3 = 2131230905;
-			
-			// aapt resource value: 0x7f0800b6
-			public const int imagenPrincipal = 2131230902;
+			public const int imagenPrincipal = 2131230904;
 			
 			// aapt resource value: 0x7f0800ad
 			public const int info = 2131230893;
+			
+			// aapt resource value: 0x7f0800c0
+			public const int involucradoTxt = 2131230912;
 			
 			// aapt resource value: 0x7f080059
 			public const int italic = 2131230809;
@@ -2675,38 +2687,41 @@ namespace SIGERSIV
 			// aapt resource value: 0x7f08009b
 			public const int listaReportes = 2131230875;
 			
-			// aapt resource value: 0x7f0800b4
-			public const int listaVehiculos = 2131230900;
-			
-			// aapt resource value: 0x7f0800bf
-			public const int lugar = 2131230911;
-			
-			// aapt resource value: 0x7f0800bd
-			public const int lugarBtn = 2131230909;
-			
-			// aapt resource value: 0x7f0800bc
-			public const int lugarTxt = 2131230908;
-			
-			// aapt resource value: 0x7f0800c3
-			public const int marcalabel = 2131230915;
+			// aapt resource value: 0x7f0800b5
+			public const int listaVehiculos = 2131230901;
 			
 			// aapt resource value: 0x7f0800c8
-			public const int masked = 2131230920;
+			public const int lugar = 2131230920;
+			
+			// aapt resource value: 0x7f0800bf
+			public const int lugarBtn = 2131230911;
+			
+			// aapt resource value: 0x7f0800be
+			public const int lugarTxt = 2131230910;
+			
+			// aapt resource value: 0x7f0800b6
+			public const int marcaTxt = 2131230902;
+			
+			// aapt resource value: 0x7f0800cc
+			public const int marcalabel = 2131230924;
+			
+			// aapt resource value: 0x7f0800d1
+			public const int masked = 2131230929;
 			
 			// aapt resource value: 0x7f0800a6
 			public const int media_actions = 2131230886;
 			
-			// aapt resource value: 0x7f0800c9
-			public const int menu_inicio = 2131230921;
+			// aapt resource value: 0x7f0800d2
+			public const int menu_inicio = 2131230930;
+			
+			// aapt resource value: 0x7f0800d4
+			public const int menu_perfil = 2131230932;
+			
+			// aapt resource value: 0x7f0800d3
+			public const int menu_reporte = 2131230931;
 			
 			// aapt resource value: 0x7f0800cb
-			public const int menu_perfil = 2131230923;
-			
-			// aapt resource value: 0x7f0800ca
-			public const int menu_reporte = 2131230922;
-			
-			// aapt resource value: 0x7f0800c2
-			public const int message = 2131230914;
+			public const int message = 2131230923;
 			
 			// aapt resource value: 0x7f080031
 			public const int middle = 2131230769;
@@ -2714,8 +2729,11 @@ namespace SIGERSIV
 			// aapt resource value: 0x7f080053
 			public const int mini = 2131230803;
 			
-			// aapt resource value: 0x7f0800c4
-			public const int modelolabel = 2131230916;
+			// aapt resource value: 0x7f0800c3
+			public const int modeloTxt = 2131230915;
+			
+			// aapt resource value: 0x7f0800cd
+			public const int modelolabel = 2131230925;
 			
 			// aapt resource value: 0x7f080028
 			public const int multiply = 2131230760;
@@ -2726,8 +2744,11 @@ namespace SIGERSIV
 			// aapt resource value: 0x7f08003b
 			public const int never = 2131230779;
 			
-			// aapt resource value: 0x7f0800c1
-			public const int nombreTxt = 2131230913;
+			// aapt resource value: 0x7f0800ca
+			public const int nombreTxt = 2131230922;
+			
+			// aapt resource value: 0x7f0800b4
+			public const int nombreUsuario = 2131230900;
 			
 			// aapt resource value: 0x7f080022
 			public const int none = 2131230754;
@@ -2743,6 +2764,9 @@ namespace SIGERSIV
 			
 			// aapt resource value: 0x7f0800a8
 			public const int notification_main_column_container = 2131230888;
+			
+			// aapt resource value: 0x7f0800c5
+			public const int numPlacasTxt = 2131230917;
 			
 			// aapt resource value: 0x7f08004c
 			public const int parallax = 2131230796;
@@ -2762,8 +2786,11 @@ namespace SIGERSIV
 			// aapt resource value: 0x7f08004d
 			public const int pin = 2131230797;
 			
-			// aapt resource value: 0x7f0800c6
-			public const int placaslabel = 2131230918;
+			// aapt resource value: 0x7f0800cf
+			public const int placaslabel = 2131230927;
+			
+			// aapt resource value: 0x7f0800c2
+			public const int polizaTxt = 2131230914;
 			
 			// aapt resource value: 0x7f080006
 			public const int progress_circular = 2131230726;
@@ -2969,8 +2996,8 @@ namespace SIGERSIV
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800c7
-			public const int visible = 2131230919;
+			// aapt resource value: 0x7f0800d0
+			public const int visible = 2131230928;
 			
 			// aapt resource value: 0x7f08003c
 			public const int withText = 2131230780;
@@ -3215,34 +3242,37 @@ namespace SIGERSIV
 			public const int perfil_content = 2130968635;
 			
 			// aapt resource value: 0x7f04003c
-			public const int reporte = 2130968636;
+			public const int registro_vehiculo_activity = 2130968636;
 			
 			// aapt resource value: 0x7f04003d
-			public const int reporte_container_activity = 2130968637;
+			public const int reporte = 2130968637;
 			
 			// aapt resource value: 0x7f04003e
-			public const int reporte_list_item = 2130968638;
+			public const int reporte_container_activity = 2130968638;
 			
 			// aapt resource value: 0x7f04003f
-			public const int select_dialog_item_material = 2130968639;
+			public const int reporte_list_item = 2130968639;
 			
 			// aapt resource value: 0x7f040040
-			public const int select_dialog_multichoice_material = 2130968640;
+			public const int select_dialog_item_material = 2130968640;
 			
 			// aapt resource value: 0x7f040041
-			public const int select_dialog_singlechoice_material = 2130968641;
+			public const int select_dialog_multichoice_material = 2130968641;
 			
 			// aapt resource value: 0x7f040042
-			public const int signup_activity = 2130968642;
+			public const int select_dialog_singlechoice_material = 2130968642;
 			
 			// aapt resource value: 0x7f040043
-			public const int support_simple_spinner_dropdown_item = 2130968643;
+			public const int signup_activity = 2130968643;
 			
 			// aapt resource value: 0x7f040044
-			public const int tooltip = 2130968644;
+			public const int support_simple_spinner_dropdown_item = 2130968644;
 			
 			// aapt resource value: 0x7f040045
-			public const int vehiculo_list_item = 2130968645;
+			public const int tooltip = 2130968645;
+			
+			// aapt resource value: 0x7f040046
+			public const int vehiculo_list_item = 2130968646;
 			
 			static Layout()
 			{

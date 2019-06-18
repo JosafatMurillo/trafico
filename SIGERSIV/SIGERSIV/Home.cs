@@ -47,7 +47,7 @@ namespace SIGERSIV
 
             if (cliente != null)
             {
-                var request = (HttpWebRequest)WebRequest.Create("http://192.168.43.74/Reporte/ObtenerPorCliente");
+                var request = (HttpWebRequest)WebRequest.Create($"http://192.168.43.74/Reporte/ObtenerPorCliente");
 
                 var postData = $"cliente={cliente.IdCliente}";
                 var data = Encoding.ASCII.GetBytes(postData);
