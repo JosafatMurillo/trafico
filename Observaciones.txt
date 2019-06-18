@@ -8,6 +8,8 @@ Elementos completados:
 -El cliente del chat se creo de manera independiente a las aplicaciones web y móvil, siendo este que no se conecta con niguna de las anteriores
 -En cuanto a funcionalidad, la aplicación móvil permite el registro de reportes, así como visualización de los mismos, la aplicación web permite la visualización de los reportes y el dictamen, este ultimo está incompleto. Ambas aplicaciones permiten el inicio de sesion.
 -Se intentó publicar en azure pero debido a ciertos factores, se pudieron publicar los ervicios pero no se pudo anidar la base de datos por lo que resultaba inutil la parte de los servicios sin conexión con la base de datos.
+-La base de datos se mapea solo en la capa de los servicios
+-La base de datos se creó en SqlServer, el chat implemeta Sockets y los servicios son REST
 
 Elementos faltantes:
 -No se incluyen validaciones totales en cuanto a las entradas.
