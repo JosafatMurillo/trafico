@@ -19,9 +19,7 @@ namespace ServiciosTransito.Controllers
         [HttpPost]
         public Cliente login([FromForm]String telefono, [FromForm]String contrasenia)
         {
-            Cliente cliente = _context.Cliente.FirstOrDefault(c => c.Telefono.Equals(telefono) && c.Contrasenia.Equals(contrasenia));
-
-            return cliente;
+            return _context.Cliente.FirstOrDefault(c => c.Telefono.Equals(telefono) && c.Contrasenia.Equals(contrasenia));
         }
 
         [Route("/Cliente/ObtenerPorId")]

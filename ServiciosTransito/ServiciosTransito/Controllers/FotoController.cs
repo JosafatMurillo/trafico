@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ServiciosTransito.Models;
+using Microsoft.AspNetCore.Hosting;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,6 +16,7 @@ namespace ServiciosTransito.Controllers
     public class FotoController : Controller
     {
         TransitoContext _context = new TransitoContext();
+        private readonly IHostingEnvironment _environment;
 
         [Route("/Foto/ObtenerPorReporte")]
         [Produces("application/json")]
@@ -22,28 +26,37 @@ namespace ServiciosTransito.Controllers
             return _context.Foto.Where(f => f.Reporte == idReporte);
         }
 
+        [Route("/Foto/ObtenerFotos")]
+        [Produces("application/json")]
+        [HttpPost]
+        public List<IFormFile> obtenerFotos([FromForm] int idReporte)
+        {
+            List<IFormFile> fotos = new List<IFormFile>();
+            List<Foto> registros = _context.Foto.Where(f => f.Reporte == idReporte).ToList();
+            foreach(Foto f in registros)
+            {
+                string ruta = f.Foto1;
+
+            }
+            return fotos;
+        }
+
         [Route("/Foto/Registrar")]
         [Produces("application/json")]
         [HttpPost]
-        public Mensaje guardarFoto([FromForm] string foto, [FromForm] int idReporte)
+        public async void guardarFoto([FromForm] IFormFile foto, [FromForm] int idReporte)
         {
-            Mensaje mensaje = new Mensaje();
             Foto fotoGuardar = new Foto();
-            fotoGuardar.Foto1 = foto;
+            String rutaApp = Directory.GetCurrentDirectory();
             fotoGuardar.Reporte = idReporte;
-            try
+            fotoGuardar.Foto1 = foto.FileName;
+            var uploads = Path.Combine(_environment.WebRootPath, "uploads");
+            using (var stream = new FileStream(Path.Combine(uploads,foto.FileName), FileMode.Create))
             {
-                _context.Foto.Add(fotoGuardar);
-                _context.SaveChanges();
-                mensaje.mensaje = "Foto registrada con exito";
-                mensaje.correcto = true;
+                await foto.CopyToAsync(stream);
             }
-            catch (Exception e)
-            {
-                mensaje.correcto = false;
-                mensaje.mensaje = "Fallo al almacenar la imagen";
-            }
-            return mensaje;
+            _context.Foto.Add(fotoGuardar);
+            _context.SaveChanges();
         }
 
         [Route("/Foto/Actualizar")]

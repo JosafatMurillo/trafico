@@ -68,7 +68,7 @@ namespace ServiciosTransito.Controllers
 
         [Route("/Reporte/Actualizar")]
         [Produces("application/json")]
-        [HttpPut]
+        [HttpPost]
         public Mensaje actualizarReporte([FromForm]int cliente, [FromForm]string lugar, [FromForm]string nombreConductor, [FromForm]int vehiculo,
             [FromForm]int vehiculoAgeno,[FromForm] int idReporte)
         {
@@ -76,7 +76,7 @@ namespace ServiciosTransito.Controllers
             Reporte reporte = new Reporte();
             reporte.Cliente = cliente;
             reporte.IdReporte = idReporte;
-            reporte.EstatusReporte = 8;
+            reporte.EstatusReporte = 7;
             reporte.Lugar = lugar;
             reporte.NombreConductorAgeno = nombreConductor;
             reporte.Vehiculo = vehiculo;

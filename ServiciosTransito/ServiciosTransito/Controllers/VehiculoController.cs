@@ -33,9 +33,9 @@ namespace ServiciosTransito.Controllers
         [Route("/Vehiculo/ObtenerPorCliente")]
         [Produces("application/json")]
         [HttpPost]
-        public IQueryable<Vehiculo> obtenerVehiculosPorCliente([FromForm]int idCliente)
+        public List<Vehiculo> obtenerVehiculosPorCliente([FromForm]int idCliente)
         {
-            return _context.Vehiculo.Where(v => v.Cliente == idCliente);
+            return _context.Vehiculo.Where(v => v.Cliente == idCliente).ToList();
         }
 
         [Route("/Vehiculo/Agregar")]

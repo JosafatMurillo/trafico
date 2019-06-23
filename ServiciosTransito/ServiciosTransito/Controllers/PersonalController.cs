@@ -19,9 +19,15 @@ namespace ServiciosTransito.Controllers
         [HttpPost]
         public Personal login([FromForm]string nombreUsuario, [FromForm]string contrasenia)
         {
-            Personal personal;
-            personal = _context.Personal.FirstOrDefault(p => p.NombreUsuario.Equals(nombreUsuario) && p.Contrasenia.Equals(contrasenia));
-            return personal;
+            return _context.Personal.FirstOrDefault(p => p.NombreUsuario.Equals(nombreUsuario) && p.Contrasenia.Equals(contrasenia));
+        }
+
+        [Route("/Personal/ObtenerPorId")]
+        [Produces("application/json")]
+        [HttpPost]
+        public Personal obtenerPorId([FromForm]int idPersonal)
+        {
+            return _context.Personal.FirstOrDefault(p => p.IdPersonal == idPersonal);
         }
 
         [Route("/Personal/Agregar")]

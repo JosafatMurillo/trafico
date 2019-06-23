@@ -1,0 +1,17 @@
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\bin\Release\netcoreapp2.1\win-x86\hostpolicy.dll
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\bin\Release\netcoreapp2.1\win-x86\hostfxr.dll
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\bin\Release\netcoreapp2.1\win-x86\ServiciosTransito.exe
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\bin\Release\netcoreapp2.1\win-x86\ServiciosTransito.deps.json
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\bin\Release\netcoreapp2.1\win-x86\ServiciosTransito.runtimeconfig.json
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\bin\Release\netcoreapp2.1\win-x86\ServiciosTransito.runtimeconfig.dev.json
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\bin\Release\netcoreapp2.1\win-x86\ServiciosTransito.dll
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\bin\Release\netcoreapp2.1\win-x86\ServiciosTransito.pdb
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\obj\Release\netcoreapp2.1\win-x86\ServiciosTransito.csprojAssemblyReference.cache
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\obj\Release\netcoreapp2.1\win-x86\ServiciosTransito.csproj.CoreCompileInputs.cache
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\obj\Release\netcoreapp2.1\win-x86\ServiciosTransito.RazorAssemblyInfo.cache
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\obj\Release\netcoreapp2.1\win-x86\ServiciosTransito.RazorAssemblyInfo.cs
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\obj\Release\netcoreapp2.1\win-x86\ServiciosTransito.AssemblyInfoInputs.cache
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\obj\Release\netcoreapp2.1\win-x86\ServiciosTransito.AssemblyInfo.cs
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\obj\Release\netcoreapp2.1\win-x86\ServiciosTransito.RazorTargetAssemblyInfo.cache
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\obj\Release\netcoreapp2.1\win-x86\ServiciosTransito.dll
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\ServiciosTransito\ServiciosTransito\obj\Release\netcoreapp2.1\win-x86\ServiciosTransito.pdb
