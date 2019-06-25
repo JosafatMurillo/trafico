@@ -1,4 +1,5 @@
 ﻿@using SIGERSIV.Models
+@using System.Net.Sockets;
 @{
     ViewData["Title"] = "Dashboard";
     Layout = null;
@@ -7,33 +8,15 @@
 @{
 
     @Model List<SIGERSIV.Models.ReporteVista> reportes = new List<SIGERSIV.Models.ReporteVista>();
-    @Model Personal per = new Personal();
-    @Model Reporte reporteSeleccionado = new Reporte();
-    @Model Vehiculo vehiculoReporte = new Vehiculo();
-    @Model VehiculoAgeno vehiculoAgenoReporte = new VehiculoAgeno();
-    @Model Cliente clienteReporte = new Cliente();
 
-    if(ViewBag.reporteVista != null)
+    if (ViewBag.reporteVista != null)
     {
         reportes = ViewBag.reporteVista;
     }
-    per = ViewBag.empleado;
-    if(ViewBag.reporte != null)
-    {
-        reporteSeleccionado = ViewBag.reporte;
-    }
-    if(ViewBag.vehiculoCliente != null)
-    {
-        vehiculoReporte = ViewBag.vehiculoCliente;
-    }
-    if(ViewBag.vehiculoAgeno != null)
-    {
-        vehiculoAgenoReporte = ViewBag.vehiculoAgeno;
-    }
-    if(ViewBag.cliente != null)
-    {
-        clienteReporte = ViewBag.cliente;
-    }
+    Personal p = ViewBag.empleado;
+    String nombre = ViewBag.username;
+    int idPersonal = ViewBag.idPersonal;
+    List<string> mensajes = new List<string>();
 }
 
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -48,7 +31,14 @@
         <div class="collapse navbar-collapse" id="navBar">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#" onclick="/Home/CerrarSesion">Cerrar sesión</a>
+                    <a class="nav-link" href="/Home/Login" onclick="/Home/Login">Cerrar sesión</a>
+                    <form action="/Home/Chat" method="post">
+                        <input name="idPersonal" value="@idPersonal" type="hidden" />
+                        <input name="mensaje" value="Hola" type="hidden" />
+                        <input name="nombreUsuario" value="@p.NombreUsuario" type="hidden" />
+                        <input name="mensajes" value="@mensajes" type="hidden" />
+                        <button type="submit" class="btn btn-primary">Chat</button>
+                    </form>
                 </li>
             </ul>
         </div>
@@ -66,154 +56,21 @@
     @{
         @Model foreach (SIGERSIV.Models.ReporteVista reporte in reportes)
         {
-    <li class="list-group-item">
-        <img src="~/images/carrousel1.jpg" width="90" height="90" />
-        <label class="col-md-3">@reporte.Lugar</label>
-        <label class="col-md-3">@reporte.Cliente</label>
-        <label class="col-md-2">@reporte.EstatusReporte</label>
-        <button class="btn btn-outline-primary col-md-2" onclick="mostrarDetalles()">Ver detalles</button>
-
-        <!--<a class="btn btn-primary" onclick="mostrarDetalles()" href="">Ver Detalles</a>-->
-    </li>
+            <li class="list-group-item">
+                <img src="~/images/carrousel1.jpg" width="90" height="90" />
+                <label class="col-md-3">@reporte.Lugar</label>
+                <label class="col-md-3">@reporte.Cliente</label>
+                <label class="col-md-2">@reporte.EstatusReporte</label>
+                <form method="post" action="/Home/Detalles">
+                    <input type="hidden" name="idReporte" id="idReporte" value="@reporte.idReporte" />
+                    <input type="hidden" name="idPersonal" id="idPersonal" value="@idPersonal" />
+                    <button class="btn btn-outline-primary col-md-2" type="submit">Ver detalles</button>
+                    <!--<a class="col-md-2 nav-link" onclick="/Home/Detalles" href="/Home/Detalles">Ver Detalles</a>-->
+                </form>
+            </li>
         }
     }
 </ul>
-
-<div class="modal fade" tabindex="-1" role="dialog" id="dialogoDetalles">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Detalles</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <img src="~/images/carrousel1.jpg" style="width: 100%; height: 200px; padding-bottom: 10px;" />
-                <table class="table" style="padding-top: 10px;">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Lugar</th>
-                            <th scope="col">Cliente</th>
-                            <th scope="col">Estatus</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">@reportes[0].Lugar</th>
-                            <td>@reportes[0].Cliente</td>
-                            <td>@reportes[0].EstatusReporte</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3 style="padding-top: 10px;">Vehículo del cliente</h3>
-                <table class="table" style="padding-top: 10px;">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Marca</th>
-                            <th scope="col">Modelo</th>
-                            <th scope="col">Año</th>
-                            <th scope="col">Color</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">@vehiculoReporte.Marca</th>
-                            <td>@vehiculoReporte.Modelo</td>
-                            <td>@vehiculoReporte.Anio</td>
-                            <td>@vehiculoReporte.Color</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Aseguradora</th>
-                            <th scope="col">Póliza</th>
-                            <th scope="col">Placas</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">@vehiculoReporte.NombreAseguradora</th>
-                            <td>@vehiculoReporte.NumeroPoliza</td>
-                            <td>@vehiculoReporte.NumeroPlacas</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3 style="padding-top: 10px;">Vehículo del implicado</h3>
-                <table class="table" style="padding-top: 10px;">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Marca</th>
-                            <th scope="col">Modelo</th>
-                            <th scope="col">Año</th>
-                            <th scope="col">Color</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">@vehiculoAgenoReporte.Marca</th>
-                            <td>@vehiculoAgenoReporte.Modelo</td>
-                            <td>@vehiculoAgenoReporte.Anio</td>
-                            <td>@vehiculoAgenoReporte.Color</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <table class="table">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Aseguradora</th>
-                            <th scope="col">Póliza</th>
-                            <th scope="col">Placas</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">@vehiculoAgenoReporte.NombreAseguradora</th>
-                            <td>@vehiculoAgenoReporte.NumeroPoliza</td>
-                            <td>@vehiculoAgenoReporte.NumeroPlacas</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-outline-primary" onclick="mostrarDeterminar()" data-dismiss="modal">Determinar</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
-<div class="modal fade" tabindex="-1" role="dialog" id="dialogoDeterminar">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Determinar</h4>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
-            <div class="modal-body">
-                <p>A favor de: </p>
-                <form class="centered" method="post" action="/Home/Dictaminar">
-                    <div class="form-check">
-                        <input type="radio" name="opcionDeterminar" class="form-check-input" id="exampleCheck1" value="usuario">
-                        <label class="form-check-label" for="exampleCheck1">Usuario</label>
-                    </div>
-                    <div class="form-check">
-                        <input type="radio" name="opcionDeterminar" class="form-check-input" id="exampleCheck2" value="incolucrado">
-                        <label class="form-check-label" for="exampleCheck1">Involucrado</label>
-                    </div>
-                    <div class="form-group" style="padding-top: 10px;">
-                        <label for="justificacion">Justificación</label>
-                        <textarea class="form-control" id="justificacion"></textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Determinar</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 
 <script>
     function mostrarDetalles() {

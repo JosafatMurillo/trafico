@@ -1,0 +1,43 @@
+﻿@using SIGERSIV.Models;
+@{
+    ViewData["Title"] = "Determinar";
+    Layout = null;
+
+    @Model Dictamen dictamen = new Dictamen();
+
+    if (ViewBag.dictamen != null)
+    {
+        dictamen = ViewBag.dictamen;
+    }
+
+    int id = ViewBag.id;
+    @Model Reporte rep = ViewBag.prueba;
+    int personal = ViewBag.idP;
+}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <header class="card-header">
+                    <h4 class="card-title mt-2">Dictamen</h4>
+                </header>
+                <article class="card-body">
+                    <form class="centered" method="post" action="/Home/Dictaminar">
+                        <div class="form-group" style="padding-top: 10px;">
+                            <label for="justificacion">Justificación</label>
+                            <input type="text" name="justificacion" id="justificacion" value="@dictamen.Descripcion" />
+                            <input type="hidden" name="idReporte" id="idReporte" value="@rep.IdReporte" />
+                            <input type="hidden" name="idPersonal" id="idPersonal" value="@personal" />
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary">Dictaminar</button>
+                    </form>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>

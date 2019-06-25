@@ -1,0 +1,47 @@
+﻿@using SIGERSIV.Models;
+@using System.Net.Sockets;
+@{
+    ViewData["Title"] = "Chat";
+    Layout = null;
+}
+
+@{
+    Personal p = ViewBag.per;
+    List<string> mensajes = new List<string>();
+    if (ViewBag.mensajes != null)
+    {
+        mensajes = ViewBag.mensajes;
+    }
+
+    TcpClient cliente = ViewBag.clie;
+    string nombreUsuario = ViewBag.nombreUsuario;
+}
+
+<form method="post">
+    <div>
+        <label>Escriba su mensaje:</label>
+    </div>
+    <div class="centered">
+        <input type="text" name="mensaje" id="mensaje" />
+        <input type="hidden" name="socket" id="socket" value="@cliente" />
+        <input type="hidden" name="nombreUsuario" id="nombreUsuario" value="@nombreUsuario" />
+        <input type="hidden" name="mensajes" id="mensajes" value="@mensajes" />
+        <button class="btn btn-primary" type="submit" onclick="/Home/Enviar">Enviar</button>
+    </div>
+</form>
+<div>
+    @{
+        foreach (String men in mensajes)
+        {
+            if (men != "" || men != null)
+            {
+                <label>@men<br /></label>
+            }
+        }
+    }
+</div>
+<script>
+    function enviar() {
+        location.reload();
+    }
+</script>

@@ -1,0 +1,152 @@
+﻿@using  SIGERSIV.Models;
+@{
+    ViewData["Title"] = "Detalles";
+    Layout = null;
+
+    @Model Reporte reporteSeleccionado = new Reporte();
+    @Model Vehiculo vehiculoReporte = new Vehiculo();
+    @Model VehiculoAgeno vehiculoAgenoReporte = new VehiculoAgeno();
+    @Model Cliente clienteReporte = new Cliente();
+    @Model ReporteVista vista = new ReporteVista();
+
+    Personal p = ViewBag.empleado;
+
+    if (ViewBag.datos != null)
+    {
+        vista = ViewBag.datos;
+    }
+    if (ViewBag.reporte != null)
+    {
+        reporteSeleccionado = ViewBag.reporte;
+    }
+    if (ViewBag.vehiculoCliente != null)
+    {
+        vehiculoReporte = ViewBag.vehiculoCliente;
+    }
+    if (ViewBag.vehiculoAgeno != null)
+    {
+        vehiculoAgenoReporte = ViewBag.vehiculoAgeno;
+    }
+    if (ViewBag.cliente != null)
+    {
+        clienteReporte = ViewBag.cliente;
+    }
+    String usuario = ViewBag.user;
+    int idPersonal = ViewBag.id;
+}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card">
+            <header class="card-header">
+                <h4 class="card-title mt-2">Detalles</h4>
+            </header>
+            <article class="card-body">
+                <!--<img src="~/images/carrousel1.jpg" style="width: 100%; height: 200px; padding-bottom: 10px;" />-->
+                <table class="table" style="padding-top: 10px;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Lugar</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Estatus</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">@vista.Lugar</th>
+                            <td>@vista.Cliente</td>
+                            <td>@vista.EstatusReporte</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 style="padding-top: 10px;">Vehículo del cliente</h3>
+                <table class="table" style="padding-top: 10px;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Año</th>
+                            <th scope="col">Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">@vehiculoReporte.Marca</th>
+                            <td>@vehiculoReporte.Modelo</td>
+                            <td>@vehiculoReporte.Anio</td>
+                            <td>@vehiculoReporte.Color</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Aseguradora</th>
+                            <th scope="col">Póliza</th>
+                            <th scope="col">Placas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">@vehiculoReporte.NombreAseguradora</th>
+                            <td>@vehiculoReporte.NumeroPoliza</td>
+                            <td>@vehiculoReporte.NumeroPlacas</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <h3 style="padding-top: 10px;">Vehículo del implicado</h3>
+                <table class="table" style="padding-top: 10px;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Modelo</th>
+                            <th scope="col">Año</th>
+                            <th scope="col">Color</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">@vehiculoAgenoReporte.Marca</th>
+                            <td>@vehiculoAgenoReporte.Modelo</td>
+                            <td>@vehiculoAgenoReporte.Anio</td>
+                            <td>@vehiculoAgenoReporte.Color</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Aseguradora</th>
+                            <th scope="col">Póliza</th>
+                            <th scope="col">Placas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">@vehiculoAgenoReporte.NombreAseguradora</th>
+                            <td>@vehiculoAgenoReporte.NumeroPoliza</td>
+                            <td>@vehiculoAgenoReporte.NumeroPlacas</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+            <div class="modal-footer">
+                <!--<form method="post" action="/Home/Dashboard">
+                    <input type="hidden" name="username" id="username" value="per.NombreUsuario" />
+                    <input type="hidden" name="contrasena" id="contrasena" value="per.Contrasenia" />
+                    <button class="btn btn-outline-primary col-md-2" type="submit">Regresar</button>
+                </form>-->
+                <form action="/Home/Determinar" method="post">
+                    <input type="hidden" name="idReporte" id="idReporte" value="@reporteSeleccionado.IdReporte" />
+                    <input type="hidden" name="idPersonal" id="idPersonal" value="@idPersonal" />
+                    <button class="btn btn-outline-primary col-md-2" type="submit">Dictaminar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

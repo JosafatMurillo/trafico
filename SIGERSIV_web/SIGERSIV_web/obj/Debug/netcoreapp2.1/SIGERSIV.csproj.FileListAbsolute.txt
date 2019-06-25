@@ -91,3 +91,7 @@ C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\SIGERSIV_web\SIGERSIV_web\ob
 C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\SIGERSIV_web\SIGERSIV_web\obj\Debug\netcoreapp2.1\SIGERSIV.dll
 C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\SIGERSIV_web\SIGERSIV_web\obj\Debug\netcoreapp2.1\SIGERSIV.pdb
 C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\SIGERSIV_web\SIGERSIV_web\obj\Debug\netcoreapp2.1\SIGERSIV.csproj.CopyComplete
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\SIGERSIV_web\SIGERSIV_web\obj\Debug\netcoreapp2.1\Razor\Views\Home\Detalles.g.cshtml.cs
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\SIGERSIV_web\SIGERSIV_web\obj\Debug\netcoreapp2.1\Razor\Views\Home\Determinar.g.cshtml.cs
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\SIGERSIV_web\SIGERSIV_web\obj\Debug\netcoreapp2.1\Razor\Views\Home\Chat.g.cshtml.cs
+C:\Users\INSPIRON 5577\Desktop\Git\Transito\trafico\SIGERSIV_web\SIGERSIV_web\obj\Debug\netcoreapp2.1\Razor\Views\Home\Registrar.g.cshtml.cs
