@@ -50,7 +50,7 @@ namespace Servidor
                 con.nick = con.streamr.ReadLine();
 
                 list.Add(con);
-                Console.WriteLine(con.nick + " se ha conectado");
+                //Console.WriteLine(con.nick + " se ha conectado");
 
                 Thread t = new Thread(Escuchar_conexion);
                 t.Start();
@@ -64,12 +64,14 @@ namespace Servidor
                     try
                     {
                         string tmp = hcon.streamr.ReadLine();
-                        Console.WriteLine(hcon.nick + ": " + tmp);
+                        //Console.WriteLine(hcon.nick + ": " + tmp);
+                        Console.WriteLine(tmp);
                         foreach (Connection c in list)
                         {
                             try
                             {
-                                c.streamw.WriteLine(hcon.nick + ": " + tmp);
+                                //c.streamw.WriteLine(hcon.nick + ": " + tmp);
+                                c.streamw.WriteLine(tmp);
                                 c.streamw.Flush();
                             }
                             catch (Exception e)
