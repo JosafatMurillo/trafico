@@ -25,9 +25,9 @@ namespace ServiciosTransito.Controllers
         [Route("/Vehiculo/ObtenerPorIdCliente")]
         [Produces("application/json")]
         [HttpPost]
-        public Vehiculo obtenerVehiculoPorIdCliente([FromForm]int idCliente)
+        public List<Vehiculo> obtenerVehiculoPorIdCliente([FromForm]int idCliente)
         {
-            return _context.Vehiculo.FirstOrDefault(v => v.Cliente == idCliente);
+            return _context.Vehiculo.Where(v => v.Cliente == idCliente).ToList();
         }
 
         [Route("/Vehiculo/ObtenerPorCliente")]

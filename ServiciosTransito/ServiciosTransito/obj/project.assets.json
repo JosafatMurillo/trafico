@@ -2,6 +2,24 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.1": {
+      "Bitmap.Net/1.0.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/BitmapNet.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/BitmapNet.dll": {}
+        }
+      },
+      "Dewey.Drawing/5.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net461/Dewey.Drawing.dll": {}
+        },
+        "runtime": {
+          "lib/net461/Dewey.Drawing.dll": {}
+        }
+      },
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "type": "package",
         "dependencies": {
@@ -4337,6 +4355,36 @@
     }
   },
   "libraries": {
+    "Bitmap.Net/1.0.1": {
+      "sha512": "p4j7Vnm0cmtr/CgT1ckdvTqJ38S6zsc1uGXKC0dos6Vx6ik9WWTVkJAIsUbuAz0lGUUS/bwikf0YlGpmvXon0A==",
+      "type": "package",
+      "path": "bitmap.net/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "bitmap.net.1.0.1.nupkg.sha512",
+        "bitmap.net.nuspec",
+        "lib/netstandard2.0/BitmapNet.dll"
+      ]
+    },
+    "Dewey.Drawing/5.0.0": {
+      "sha512": "h9BLS7On9KOJSJiHB3ngCQMAxr6buKm/PiL6idTkoOa5KSEqqmcgjKbDVeyB+2VfSSlacqfJ6Zofx6IPCCHk8w==",
+      "type": "package",
+      "path": "dewey.drawing/5.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "dewey.drawing.5.0.0.nupkg.sha512",
+        "dewey.drawing.nuspec",
+        "lib/dnx451/Dewey.Drawing.dll",
+        "lib/dnx46/Dewey.Drawing.dll",
+        "lib/net45/Dewey.Drawing.dll",
+        "lib/net451/Dewey.Drawing.dll",
+        "lib/net452/Dewey.Drawing.dll",
+        "lib/net46/Dewey.Drawing.dll",
+        "lib/net461/Dewey.Drawing.dll"
+      ]
+    },
     "Microsoft.AspNet.WebApi.Client/5.2.6": {
       "sha512": "owAlEIUZXWSnkK8Z1c+zR47A0X6ykF4XjbPok4lQKNuciUfHLGPd6QnI+rt/8KlQ17PmF+I4S3f+m+Qe4IvViw==",
       "type": "package",
@@ -11793,6 +11841,8 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "Bitmap.Net >= 1.0.1",
+      "Dewey.Drawing >= 5.0.0",
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0"
@@ -11839,6 +11889,14 @@
     "frameworks": {
       "netcoreapp2.1": {
         "dependencies": {
+          "Bitmap.Net": {
+            "target": "Package",
+            "version": "[1.0.1, )"
+          },
+          "Dewey.Drawing": {
+            "target": "Package",
+            "version": "[5.0.0, )"
+          },
           "Microsoft.AspNetCore.App": {
             "suppressParent": "All",
             "target": "Package",
@@ -11863,5 +11921,17 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "El paquete \"Dewey.Drawing 5.0.0\" se restauró con \".NETFramework,Version=v4.6.1\" en lugar de la plataforma de destino del proyecto \".NETCoreApp,Version=v2.1\". Puede que el paquete no sea totalmente compatible con el proyecto.",
+      "libraryId": "Dewey.Drawing",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }

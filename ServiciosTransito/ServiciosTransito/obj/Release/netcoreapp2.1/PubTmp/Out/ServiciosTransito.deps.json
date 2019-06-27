@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "8d19439ef22c432fe18f0eac697c8789fe30c00a"
+    "signature": "ea6a4afecb3137640f37b82dbd5cfc7796b2ea63"
   },
   "compilationOptions": {
     "defines": [
@@ -24,6 +24,8 @@
     ".NETCoreApp,Version=v2.1": {
       "ServiciosTransito/1.0.0": {
         "dependencies": {
+          "Bitmap.Net": "1.0.1",
+          "Dewey.Drawing": "5.0.0",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.NETCore.App": "2.1.0"
         },
@@ -32,6 +34,28 @@
         },
         "compile": {
           "ServiciosTransito.dll": {}
+        }
+      },
+      "Bitmap.Net/1.0.1": {
+        "runtime": {
+          "lib/netstandard2.0/BitmapNet.dll": {
+            "assemblyVersion": "1.0.1.0",
+            "fileVersion": "1.0.1.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/BitmapNet.dll": {}
+        }
+      },
+      "Dewey.Drawing/5.0.0": {
+        "runtime": {
+          "lib/net461/Dewey.Drawing.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net461/Dewey.Drawing.dll": {}
         }
       },
       "Microsoft.NETCore.App/2.1.0": {
@@ -3150,6 +3174,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Bitmap.Net/1.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-p4j7Vnm0cmtr/CgT1ckdvTqJ38S6zsc1uGXKC0dos6Vx6ik9WWTVkJAIsUbuAz0lGUUS/bwikf0YlGpmvXon0A==",
+      "path": "bitmap.net/1.0.1",
+      "hashPath": "bitmap.net.1.0.1.nupkg.sha512"
+    },
+    "Dewey.Drawing/5.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-h9BLS7On9KOJSJiHB3ngCQMAxr6buKm/PiL6idTkoOa5KSEqqmcgjKbDVeyB+2VfSSlacqfJ6Zofx6IPCCHk8w==",
+      "path": "dewey.drawing/5.0.0",
+      "hashPath": "dewey.drawing.5.0.0.nupkg.sha512"
     },
     "Microsoft.NETCore.App/2.1.0": {
       "type": "package",

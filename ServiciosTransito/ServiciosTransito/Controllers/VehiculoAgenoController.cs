@@ -25,7 +25,7 @@ namespace ServiciosTransito.Controllers
         [Route("/VehiculoAgeno/Agregar")]
         [Produces("application/json")]
         [HttpPost]
-        public Mensaje agregarVehiculoAgeno([FromForm]string anio,[FromForm]string color, [FromForm]string marca,
+        public int agregarVehiculoAgeno([FromForm]string anio,[FromForm]string color, [FromForm]string marca,
             [FromForm]string modelo, [FromForm]string nombreAseguradora, [FromForm]string numeroPlacas, [FromForm]string numeroPoliza)
         {
             VehiculoAgeno vehiculoGuardar = new VehiculoAgeno();
@@ -49,7 +49,9 @@ namespace ServiciosTransito.Controllers
                 mensaje.mensaje = "Fallo al registrar el vehiculo";
                 mensaje.correcto = false;
             }
-            return mensaje;
+
+            VehiculoAgeno ultimo = _context.VehiculoAgeno.Last();
+            return ultimo.IdVehiculoAgeno;
         }
 
         [Route("/VehiculoAgeno/Actualizar")]
